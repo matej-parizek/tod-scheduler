@@ -1,5 +1,15 @@
 # TODO scheduler
 
+
+
+## Swagger API documentation
+
+### Swagger-ui: http://localhost:8080/swagger-ui.html
+
+## Authorization Server: https://github.com/matej-parizek/authorization-server
+
+### Auth server:
+
 ## Environment
 
 Project use system properties set in `todo-core/src/resources/config.properties`, its very important, this setting all properties. 
