@@ -1,0 +1,8 @@
+{
+  "apiPackage": "com.todo.api",
+  "modelPackage": "com.todo.model",
+  "dateLibrary": "java8",
+  "reactive" : true,
+  "interfaceOnly" : true,
+  "generateModelDocumentation" : true
+}

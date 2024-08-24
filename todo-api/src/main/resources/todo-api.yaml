@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: TODO api
+  description: TODO list for fun
+  version: v0.0.1
+servers:
+  - url: https://localhost:8080
+    description: Local development server
+tags:
+  - name: version
+    description: The application version
+
+paths:
+  /version:
+    get:
+      tags:
+        - version
+      operationId: version
+      summary: Get version of application
+      responses:
+        '200':
+          description: Get
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+
+components:
+  schemas:
+    VersionResponse:
+      type: string
+      example: "1.0.0"
