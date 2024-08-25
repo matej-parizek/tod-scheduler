@@ -7,6 +7,9 @@ import com.todo.service.security.SecurityTokenService
 import org.springframework.http.ResponseEntity
 
 //TODO: add authorization (create oauth2)
+/**
+ * Base Controller template, it`s used for authorization user`
+ */
 open class BaseController(
     val security: SecurityTokenService
 ) {

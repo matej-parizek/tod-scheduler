@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service
 class TaskServiceImp(
     val repository: TaskRepository
 ) : TaskService {
+
     override suspend fun storeTask(request: TaskPostRequest): Either<StoreTaskProblem, Unit> {
         repository.addTask(
             request.title,

@@ -2,9 +2,10 @@ package com.todo.entity
 
 import org.springframework.data.annotation.Immutable
 import org.springframework.data.relational.core.mapping.Column
-import org.springframework.data.relational.core.mapping.Table
 
-
+/**
+ * Immutable class, which getting data from database
+ */
 @Immutable
 data class TaskRecord(
     @field:Column(ID)
