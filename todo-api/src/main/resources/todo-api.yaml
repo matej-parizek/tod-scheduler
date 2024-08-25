@@ -9,6 +9,8 @@ servers:
 tags:
   - name: version
     description: The application version
+  - name: task
+    description: Operation for task what user have TO-DO
 
 paths:
   /version:
@@ -19,14 +21,82 @@ paths:
       summary: Get version of application
       responses:
         '200':
-          description: Get
+          description: Get version
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VersionResponse'
-
+                type: string
+                example: "1.0.0"
+  /task:
+    post:
+      tags:
+        - task
+      operationId: createTask
+      summary: Create task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskPostRequest'
+        required: true
+      responses:
+        '201':
+          description: Create task for to-do list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelApiResponse'
+        '400':
+          description: Request validation failed. Input parameter(s) are not valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelApiResponse'
+        '404':
+          description: Requested resource was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelApiResponse'
+        '5XX':
+          description: An unexpected server exception.
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ModelApiResponse'
 components:
   schemas:
-    VersionResponse:
-      type: string
-      example: "1.0.0"
+    TaskPostRequest:
+      type: object
+      required:
+        - title
+        - description
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 50
+        description:
+          type: string
+          maxLength: 500
+    ModelApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+          enum: [ SUCCESS, ARG_WRONG, UNAUTHORIZED, FORBIDDEN, NOT_FOUND, FAILED ]
+          description: >
+            Operation statuses:
+             * `SUCCESS` - 200 Ok.
+             * `ARG_WRONG` - 400 WRONG INPUT
+             * `UNAUTHORIZED` - 401 UNAUTHORIZED
+             * `FORBIDDEN` - 403 FORBIDDEN
+             * `NOT_FOUND` - 404 NOT FOUND
+             * `FAILED` - 500 INTERNAL SERVER EXCEPTION
+        operationId:
+          type: string
+        message:
+          type: string

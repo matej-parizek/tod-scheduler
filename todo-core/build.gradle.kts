@@ -2,9 +2,8 @@ plugins {
     // Apply the 'to-do.gradle.spring-boot-app' plugin for Spring Boot applications.
     id("todo.gradle.spring-boot-app")
 }
-
 dependencies {
-    // Project dependency: Include the 'todo-api' project.
+    // Project dependency: Include the 'to-do-api' project.
     implementation(project(":todo-api"))
 
     // Spring dependencies
@@ -31,7 +30,7 @@ dependencies {
     // XML bind (needed for Swagger)
     runtimeOnly("javax.xml.bind:jaxb-api:2.3.1")
 
-    // Test database
-    implementation("com.h2database:h2")
-    implementation("io.r2dbc:r2dbc-h2")
+    implementation("io.r2dbc:r2dbc-h2") // For H2 database compatibility with R2DBC
+//    implementation("io.r2dbc:r2dbc-postgresql") //if using PostgreSQL
+    implementation("io.asyncer:r2dbc-mysql:1.3.0")
 }

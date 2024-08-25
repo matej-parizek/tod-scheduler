@@ -1,21 +1,13 @@
 spring:
   config:
     import: classpath:config.properties
-  datasource:
-    # Configure the H2 in-memory database URL.
-    url: r2dbc:h2:mem:///testdb
-    username: sa
-    password:
-
-  h2:
-    console:
-      # Enable the H2 console for database management.
-      enabled: true
-      settings:
-        # Allow other hosts to access the H2 console via the web.
-        web-allow-others: true
-        # Enable trace logging for debugging.
-        trace: true
+  r2dbc:
+    # Configure the database.
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    properties:
+      schema: classpath:schema.sql
 
 todo:
   app:
