@@ -6,8 +6,8 @@ spring:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
-#    properties:
-#      schema: classpath:schema.sql
+    properties:
+      schema: classpath:schema.sql
 
 todo:
   app:

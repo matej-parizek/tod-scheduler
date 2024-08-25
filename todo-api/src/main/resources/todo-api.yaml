@@ -9,7 +9,6 @@ servers:
 tags:
   - name: version
     description: The application version
-
   - name: task
     description: Operation for task what user have TO-DO
 
@@ -22,11 +21,12 @@ paths:
       summary: Get version of application
       responses:
         '200':
-          description: Get
+          description: Get version
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VersionResponse'
+                type: string
+                example: "1.0.0"
   /task:
     post:
       tags:
@@ -79,9 +79,6 @@ components:
         description:
           type: string
           maxLength: 500
-    VersionResponse:
-      type: string
-      example: "1.0.0"
     ModelApiResponse:
       type: object
       properties:
