@@ -1,7 +1,6 @@
 # TODO scheduler
 
 
-
 ## Swagger API documentation
 
 ### Swagger-ui: http://localhost:8080/swagger-ui.html
@@ -10,6 +9,27 @@
 
 ### Auth server:  https://github.com/matej-parizek/authorization-server
 
+## Configuration
+
+### Docker:
+
+Project use docker-compose as database for testing, docker-compose used environment properties saved in .env
+
+```.dotenv
+DATABASE_USERNAME=username
+DATABASE_PASSWORD=password
+```
+
+### Springboot:
+
+`DATABASE_USERNAME` and `DATABASE_PASSWORD` must be same in `application.yaml` as `.env`
+
+```properties
+VERSION = 1.0.0
+DATABASE_USERNAME = username
+DATABASE_PASSWORD = password
+DATABASE_URL = r2dbc:mysql://localhost:3306/test
+```
 ## Environment
 
 Project use system properties set in `todo-core/src/resources/config.properties`, its very important, this setting all properties. 
