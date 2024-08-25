@@ -44,3 +44,5 @@ bin/
 ### CONFIG ###
 **/config.properties
 .env
+### DATA ###
+data/

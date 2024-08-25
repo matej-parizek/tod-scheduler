@@ -2,14 +2,10 @@ spring:
   config:
     import: classpath:config.properties
   r2dbc:
-    # Configure the database.
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
-    properties:
-      schema: classpath:schema.sql
 
 todo:
   app:
-    # Specify the version of your TO-DO app.
     version: ${VERSION}
