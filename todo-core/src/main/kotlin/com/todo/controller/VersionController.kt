@@ -10,8 +10,8 @@ class VersionController(
     private val versionService: VersionService
 ) : VersionApi {
     override suspend fun version(): ResponseEntity<String> {
-        return ok{
+        return ok(
             versionService.version
-        }
+        )
     }
 }

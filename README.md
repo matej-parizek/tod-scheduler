@@ -6,9 +6,9 @@
 
 ### Swagger-ui: http://localhost:8080/swagger-ui.html
 
-## Authorization Server: https://github.com/matej-parizek/authorization-server
+## Authorization Server
 
-### Auth server:
+### Auth server:  https://github.com/matej-parizek/authorization-server
 
 ## Environment
 

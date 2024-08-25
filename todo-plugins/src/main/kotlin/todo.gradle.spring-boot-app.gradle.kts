@@ -3,6 +3,8 @@ plugins {
     id("io.spring.dependency-management")
     id("org.springframework.boot")
     kotlin("plugin.spring")
+    kotlin("plugin.jpa")
+    kotlin("plugin.allopen")
     id("com.gorylenko.gradle-git-properties")
 }
 
@@ -34,4 +36,10 @@ dependencyManagement {
         dependency("com.ninja-squad:springmockk:${property("springmockk.version")}")
         dependency("io.kotest.extensions:kotest-extensions-spring:${property("kotest-extensions-spring.version")}")
     }
+}
+
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }
