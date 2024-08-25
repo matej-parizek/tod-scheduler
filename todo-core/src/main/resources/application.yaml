@@ -2,7 +2,7 @@ spring:
   config:
     import: classpath:config.properties
   r2dbc:
-    # Configure the H2 in-memory database URL.
+    # Configure the database.
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
