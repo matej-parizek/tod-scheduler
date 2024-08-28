@@ -1,6 +1,7 @@
 plugins {
     // Apply the 'to-do.gradle.spring-boot-app' plugin for Spring Boot applications.
     id("todo.gradle.spring-boot-app")
+    id("todo.gradle.init-script")
 }
 dependencies {
     // Project dependency: Include the 'to-do-api' project.
